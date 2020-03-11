@@ -6,7 +6,8 @@
     "no-use-before-define": 0,
     "react/jsx-filename-extension": 0,
     "react/prefer-stateless-function": 0,
-    "comma-dangle": "off"
+    "comma-dangle": "off",
+    "react/prop-types": 0
   },
   "parser": "babel-eslint"
 }
