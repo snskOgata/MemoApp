@@ -16,7 +16,14 @@ export default class MemoDetailScreen extends Component {
         <View style={styles.memoContent}>
           <Text>講座のアイデアです。</Text>
         </View>
-        <CircleButton name="pencil" color="white" style={styles.editButton} />
+        <CircleButton
+          name="pencil"
+          color="white"
+          style={styles.editButton}
+          onPress={() => {
+            this.props.navigation.navigate('MemoEdit');
+          }}
+        />
       </View>
     );
   }
