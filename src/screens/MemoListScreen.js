@@ -8,7 +8,7 @@ export default class MemoListScreen extends Component {
     return (
       <>
         <MemoList />
-        <CircleButton>+</CircleButton>
+        <CircleButton name="plus" />
       </>
     );
   }

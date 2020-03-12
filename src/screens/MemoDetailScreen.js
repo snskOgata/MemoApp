@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 
-import moduleName from '../elements/CircleButton';
 import CircleButton from '../elements/CircleButton';
 
 export default class MemoDetailScreen extends Component {
@@ -17,9 +16,7 @@ export default class MemoDetailScreen extends Component {
         <View style={styles.memoContent}>
           <Text>講座のアイデアです。</Text>
         </View>
-        <CircleButton color="white" style={styles.editButton}>
-          +
-        </CircleButton>
+        <CircleButton name="pencil" color="white" style={styles.editButton} />
       </View>
     );
   }
