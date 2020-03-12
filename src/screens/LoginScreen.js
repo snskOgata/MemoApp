@@ -6,6 +6,7 @@ import {
   TextInput,
   TouchableHighlight
 } from 'react-native';
+import firebase from 'firebase';
 
 export default class LoginScreen extends Component {
   constructor(props) {
@@ -16,7 +17,17 @@ export default class LoginScreen extends Component {
     };
   }
 
-  handleSubmit = () => {};
+  handleSubmit = () => {
+    firebase
+      .auth()
+      .signInWithEmailAndPassword(this.state.email, this.state.password)
+      .then(() => {
+        this.props.navigation.navigate('Home');
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  };
 
   render() {
     return (

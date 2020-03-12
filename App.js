@@ -41,10 +41,10 @@ function App() {
         }}
       >
         <Stack.Screen name="Login" component={LoginScreen} />
+        <Stack.Screen name="Singup" component={SignupScreen} />
         <Stack.Screen name="Home" component={MemoListScreen} />
         <Stack.Screen name="MemoDetail" component={MemoDetailScreen} />
         <Stack.Screen name="MemoEdit" component={MemoEditScreen} />
-        <Stack.Screen name="Singup" component={SignupScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
