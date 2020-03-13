@@ -20,9 +20,8 @@ export default class MemoCreateScreen extends Component {
         body: this.state.body,
         createdAt: firebase.firestore.Timestamp.now()
       })
-      .then(docRef => {
-        console.log(docRef);
-        this.props.navigation.navigate('Home');
+      .then(() => {
+        this.props.navigation.goBack();
       })
       .catch(error => {
         console.log(error);
