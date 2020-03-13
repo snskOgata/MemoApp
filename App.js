@@ -43,7 +43,12 @@ function App() {
         screenOptions={{
           title: 'MEMOT',
           headerStyle: {
-            backgroundColor: '#265366'
+            backgroundColor: '#265366',
+            shadowColor: '#000',
+            shadowOffset: { width: 0, height: 0 },
+            shadowOpacity: 0.5,
+            shadowRadius: 3,
+            elevation: 4
           },
           headerTintColor: '#fff',
           headerBackTitle: ' ',

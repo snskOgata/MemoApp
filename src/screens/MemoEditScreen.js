@@ -58,6 +58,7 @@ export default class MemoEditScreen extends Component {
           onChangeText={text => {
             this.setState({ body: text });
           }}
+          textAlignVertical="top"
         />
         <CircleButton name="check" onPress={this.hundlePress.bind(this)} />
       </View>

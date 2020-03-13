@@ -71,7 +71,8 @@ const styles = StyleSheet.create({
     shadowColor: '#000',
     shadowOffset: { width: 1, height: 2 },
     shadowOpacity: 0.5,
-    shadowRadius: 3
+    shadowRadius: 3,
+    elevation: 3
   },
   circleButtonTitle: {
     fontFamily: 'FontAwesome',
