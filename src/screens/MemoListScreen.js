@@ -21,7 +21,7 @@ export default class MemoListScreen extends Component {
       .then(snapshop => {
         const memoList = [];
         snapshop.forEach(doc => {
-          memoList.push(doc.data());
+          memoList.push({ ...doc.data(), key: doc.id });
         });
         this.setState({ memoList });
       })
