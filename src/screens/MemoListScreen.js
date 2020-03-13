@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, YellowBox } from 'react-native';
 import firebase from 'firebase';
 
 import MemoList from '../components/MemoList';
@@ -10,6 +10,7 @@ export default class MemoListScreen extends Component {
 
   constructor(props) {
     super(props);
+    YellowBox.ignoreWarnings(['Setting a timer']);
     this.state = {
       memoList: []
     };
