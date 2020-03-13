@@ -30,21 +30,23 @@ export default class MemoDetailScreen extends Component {
 
   render() {
     const { memo } = this.state;
-    if (memo === undefined) {
+    if (memo === undefined || memo.body === undefined) {
       return null;
     }
     return (
       <View style={styles.container}>
         <View style={styles.memoHeader}>
           <View>
-            <Text style={styles.memoHeaderTitle}>{memo.body}</Text>
+            <Text style={styles.memoHeaderTitle}>
+              {memo.body.substring(0, 10)}
+            </Text>
             <Text style={styles.memoHeaderDate}>
               {dateString(memo.createdAt)}
             </Text>
           </View>
         </View>
         <View style={styles.memoContent}>
-          <Text>{memo.body}</Text>
+          <Text style={styles.memoContentText}>{memo.body}</Text>
         </View>
         <CircleButton
           name="pencil"
@@ -89,6 +91,11 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     flex: 1
   },
+  memoContentText: {
+    lineHeight: 22,
+    fontSize: 16
+  },
+
   editButton: {
     top: 78
   }

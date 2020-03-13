@@ -23,9 +23,7 @@ export default class MemoCreateScreen extends Component {
       .then(() => {
         this.props.navigation.goBack();
       })
-      .catch(error => {
-        console.log(error);
-      });
+      .catch(() => {});
   };
 
   render() {

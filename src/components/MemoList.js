@@ -4,8 +4,13 @@ import {
   View,
   Text,
   TouchableHighlight,
-  FlatList
+  FlatList,
+  YellowBox
 } from 'react-native';
+
+YellowBox.ignoreWarnings([
+  'Non-serializable values were found in the navigation state'
+]);
 
 const dateString = date => {
   if (date === undefined) return null;

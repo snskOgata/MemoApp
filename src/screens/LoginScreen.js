@@ -4,7 +4,8 @@ import {
   View,
   Text,
   TextInput,
-  TouchableHighlight
+  TouchableHighlight,
+  TouchableOpacity
 } from 'react-native';
 import firebase from 'firebase';
 import { CommonActions } from '@react-navigation/native';
@@ -32,9 +33,11 @@ export default class LoginScreen extends Component {
           })
         );
       })
-      .catch(error => {
-        console.log(error);
-      });
+      .catch(() => {});
+  };
+
+  handlePress = () => {
+    this.props.navigation.navigate('Singup');
   };
 
   render() {
@@ -69,6 +72,13 @@ export default class LoginScreen extends Component {
         >
           <Text style={styles.buttonTitle}>ログインする</Text>
         </TouchableHighlight>
+
+        <TouchableOpacity
+          style={styles.signup}
+          onPress={this.handlePress.bind(this)}
+        >
+          <Text style={styles.signupText}>メンバー登録する</Text>
+        </TouchableOpacity>
       </View>
     );
   }
@@ -107,5 +117,12 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: 18,
     fontWeight: 'bold'
+  },
+  signup: {
+    alignSelf: 'center',
+    marginTop: 16
+  },
+  signupText: {
+    fontSize: 16
   }
 });

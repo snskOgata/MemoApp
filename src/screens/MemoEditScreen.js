@@ -15,7 +15,6 @@ export default class MemoEditScreen extends Component {
 
   componentDidMount() {
     const { params } = this.props.route;
-    console.log(params);
     this.setState({
       body: params.body,
       key: params.key
@@ -40,9 +39,7 @@ export default class MemoEditScreen extends Component {
         });
         this.props.navigation.goBack();
       })
-      .catch(error => {
-        console.log(error);
-      });
+      .catch(() => {});
   };
 
   render() {

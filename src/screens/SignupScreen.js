@@ -24,10 +24,7 @@ export default class SignupScreen extends Component {
       .then(() => {
         this.props.navigation.navigate('Home');
       })
-      .catch(error => {
-        // Handle Errors here.
-        console.log(error);
-      });
+      .catch(() => {});
   };
 
   render() {
