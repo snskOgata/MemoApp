@@ -18,7 +18,7 @@ export default class MemoCreateScreen extends Component {
     db.collection(`users/${currentUser.uid}/memos`)
       .add({
         body: this.state.body,
-        createdAt: new Date()
+        createdAt: firebase.firestore.Timestamp.now()
       })
       .then(docRef => {
         console.log(docRef);

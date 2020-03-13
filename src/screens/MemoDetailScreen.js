@@ -3,25 +3,51 @@ import { StyleSheet, View, Text } from 'react-native';
 
 import CircleButton from '../elements/CircleButton';
 
+const dateString = date => {
+  if (date === undefined) return null;
+  const str = date.toDate().toISOString();
+  return str.split('T')[0];
+};
+
 export default class MemoDetailScreen extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      memo: {}
+    };
+  }
+
+  componentDidMount() {
+    const { params } = this.props.route;
+    this.setState({
+      memo: params.memo
+    });
+  }
+
   render() {
+    const { memo } = this.state;
+    if (memo === undefined) {
+      return null;
+    }
     return (
       <View style={styles.container}>
         <View style={styles.memoHeader}>
           <View>
-            <Text style={styles.memoHeaderTitle}>講座のアイデア</Text>
-            <Text style={styles.memoHeaderDate}>2020/03/11</Text>
+            <Text style={styles.memoHeaderTitle}>{memo.body}</Text>
+            <Text style={styles.memoHeaderDate}>
+              {dateString(memo.createdAt)}
+            </Text>
           </View>
         </View>
         <View style={styles.memoContent}>
-          <Text>講座のアイデアです。</Text>
+          <Text>{memo.body}</Text>
         </View>
         <CircleButton
           name="pencil"
           color="white"
           style={styles.editButton}
           onPress={() => {
-            this.props.navigation.navigate('MemoEdit');
+            this.props.navigation.navigate('MemoEdit', { memo });
           }}
         />
       </View>
