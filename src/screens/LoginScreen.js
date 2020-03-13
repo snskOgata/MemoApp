@@ -12,8 +12,8 @@ export default class LoginScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: '',
-      password: ''
+      email: 'foobar@gmail.com',
+      password: 'foobar'
     };
   }
 
@@ -22,8 +22,7 @@ export default class LoginScreen extends Component {
       .auth()
       .signInWithEmailAndPassword(this.state.email, this.state.password)
       .then(user => {
-        console.log({ user });
-        this.props.navigation.navigate('Home', { currentUser: user });
+        this.props.navigation.navigate('Home');
       })
       .catch(error => {
         console.log(error);

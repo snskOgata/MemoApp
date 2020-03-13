@@ -13,10 +13,9 @@ export default class MemoCreateScreen extends Component {
   }
 
   hundlePress = () => {
-    const { params } = this.props.route;
-    console.log('uid: ', params.currentUser.user.uid);
     const db = firebase.firestore();
-    db.collection(`users/${params.currentUser.user.uid}/memos`)
+    const { currentUser } = firebase.auth();
+    db.collection(`users/${currentUser.uid}/memos`)
       .add({
         body: this.state.body,
         createdAt: new Date()
