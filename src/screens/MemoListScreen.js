@@ -6,6 +6,8 @@ import MemoList from '../components/MemoList';
 import CircleButton from '../elements/CircleButton';
 
 export default class MemoListScreen extends Component {
+  _isMounted = false;
+
   constructor(props) {
     super(props);
     this.state = {
@@ -14,15 +16,22 @@ export default class MemoListScreen extends Component {
   }
 
   componentDidMount() {
+    this._isMounted = true;
     const db = firebase.firestore();
     const { currentUser } = firebase.auth();
     db.collection(`users/${currentUser.uid}/memos`).onSnapshot(snapshot => {
-      const memoList = [];
-      snapshot.forEach(doc => {
-        memoList.push({ ...doc.data(), key: doc.id });
-      });
-      this.setState({ memoList });
+      if (this._isMounted) {
+        const memoList = [];
+        snapshot.forEach(doc => {
+          memoList.push({ ...doc.data(), key: doc.id });
+        });
+        this.setState({ memoList });
+      }
     });
+  }
+
+  componentWillUnmount() {
+    this._isMounted = false;
   }
 
   handlePress() {
