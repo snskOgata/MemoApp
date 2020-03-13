@@ -24,6 +24,10 @@ export default class MemoDetailScreen extends Component {
     });
   }
 
+  returnMemo(memo) {
+    this.setState({ memo });
+  }
+
   render() {
     const { memo } = this.state;
     if (memo === undefined) {
@@ -47,7 +51,10 @@ export default class MemoDetailScreen extends Component {
           color="white"
           style={styles.editButton}
           onPress={() => {
-            this.props.navigation.navigate('MemoEdit', { memo });
+            this.props.navigation.navigate('MemoEdit', {
+              ...memo,
+              returnMemo: this.returnMemo.bind(this)
+            });
           }}
         />
       </View>

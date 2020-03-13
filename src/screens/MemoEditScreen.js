@@ -15,22 +15,30 @@ export default class MemoEditScreen extends Component {
 
   componentDidMount() {
     const { params } = this.props.route;
+    console.log(params);
     this.setState({
-      body: params.memo.body,
-      key: params.memo.key
+      body: params.body,
+      key: params.key
     });
   }
 
   hundlePress = () => {
     const { currentUser } = firebase.auth();
     const db = firebase.firestore();
+    const newDate = firebase.firestore.Timestamp.now();
     db.collection(`users/${currentUser.uid}/memos`)
       .doc(this.state.key)
       .update({
-        body: this.state.body
+        body: this.state.body,
+        createdAt: newDate
       })
       .then(() => {
-        console.log('success!');
+        this.props.route.params.returnMemo({
+          body: this.state.body,
+          key: this.state.key,
+          createdAt: newDate
+        });
+        this.props.navigation.goBack();
       })
       .catch(error => {
         console.log(error);
