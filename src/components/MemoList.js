@@ -29,7 +29,9 @@ export default class MemoList extends Component {
         }}
       >
         <View style={styles.memoListItem}>
-          <Text style={styles.memoTitle}>{item.body.substring(0, 10)}</Text>
+          <Text style={styles.memoTitle}>
+            {item.body ? item.body.substring(0, 10) : ''}
+          </Text>
           <Text style={styles.memoDate}>{dateString(item.createdAt)}</Text>
         </View>
       </TouchableHighlight>

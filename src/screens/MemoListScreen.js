@@ -26,6 +26,9 @@ export default class MemoListScreen extends Component {
         snapshot.forEach(doc => {
           memoList.push({ ...doc.data(), key: doc.id });
         });
+        memoList.sort((a, b) => {
+          return b.createdAt - a.createdAt;
+        });
         this.setState({ memoList });
       }
     });
