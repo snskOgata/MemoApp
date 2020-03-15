@@ -64,11 +64,6 @@ export default class MemoEditScreen extends Component {
           }}
           textAlignVertical="top"
         />
-        <CircleButton
-          name="microphone"
-          onPress={this.hundlePress.bind(this)}
-          style={styles.micIcon}
-        />
         <CircleButton name="check" onPress={this.hundlePress.bind(this)} />
       </KeyboardAvoidingView>
     );
@@ -87,9 +82,5 @@ const styles = StyleSheet.create({
     paddingLeft: 16,
     paddingRight: 16,
     fontSize: 16
-  },
-  micIcon: {
-    position: 'absolute',
-    bottom: 96
   }
 });
