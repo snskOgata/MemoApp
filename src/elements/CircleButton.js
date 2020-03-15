@@ -9,7 +9,9 @@ const CustomIcon = createIconSet(
   {
     pencil: '\uf303',
     plus: '\uf067',
-    check: '\uf00c'
+    check: '\uf00c',
+    headphone: '\uf025',
+    microphone: '\uf130'
   },
   'FontAwesome'
 );

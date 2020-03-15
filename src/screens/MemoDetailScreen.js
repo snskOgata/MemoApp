@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Text } from 'react-native';
+import * as Speech from 'expo-speech';
 
 import CircleButton from '../elements/CircleButton';
 
@@ -27,6 +28,13 @@ export default class MemoDetailScreen extends Component {
   returnMemo(memo) {
     this.setState({ memo });
   }
+
+  handlePressSpeech = () => {
+    Speech.speak(this.props.route.params.memo.body, {
+      language: 'ja',
+      rate: 1.5
+    });
+  };
 
   render() {
     const { memo } = this.state;
@@ -58,6 +66,11 @@ export default class MemoDetailScreen extends Component {
               returnMemo: this.returnMemo.bind(this)
             });
           }}
+        />
+
+        <CircleButton
+          name="headphone"
+          onPress={this.handlePressSpeech.bind(this)}
         />
       </View>
     );
