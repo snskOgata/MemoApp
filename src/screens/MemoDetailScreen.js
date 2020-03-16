@@ -31,7 +31,7 @@ export default class MemoDetailScreen extends Component {
 
   handlePressSpeech = () => {
     Speech.speak(this.props.route.params.memo.body, {
-      voice: 'com.apple.ttsbundle.Tessa-compact',
+      voice: 'com.apple.ttsbundle.Samantha-compact',
       rate: 1.2,
       pitch: 1.0
     });
