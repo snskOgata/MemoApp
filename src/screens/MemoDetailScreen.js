@@ -33,7 +33,7 @@ export default class MemoDetailScreen extends Component {
     Speech.speak(this.props.route.params.memo.body, {
       voice: 'com.apple.ttsbundle.Samantha-compact',
       rate: 1.2,
-      pitch: 1.0
+      pitch: 0.5
     });
   };
 
