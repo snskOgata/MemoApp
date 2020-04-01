@@ -58,8 +58,8 @@ export default class CircleButton extends Component {
 const styles = StyleSheet.create({
   container: {
     position: 'absolute',
-    bottom: 32,
-    right: 32,
+    bottom: 28,
+    right: 28,
     width: 48,
     height: 48,
     borderRadius: 24
