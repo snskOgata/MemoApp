@@ -4,7 +4,7 @@ import * as Speech from 'expo-speech';
 
 import CircleButton from '../elements/CircleButton';
 
-const dateString = date => {
+const dateString = (date) => {
   if (date === undefined) return null;
   const str = date.toDate().toISOString();
   return str.split('T')[0];
@@ -14,14 +14,14 @@ export default class MemoDetailScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      memo: {}
+      memo: {},
     };
   }
 
   componentDidMount() {
     const { params } = this.props.route;
     this.setState({
-      memo: params.memo
+      memo: params.memo,
     });
   }
 
@@ -32,8 +32,8 @@ export default class MemoDetailScreen extends Component {
   handlePressSpeech = () => {
     Speech.speak(this.props.route.params.memo.body, {
       voice: 'com.apple.ttsbundle.Karen-compact',
-      rate: 1.3,
-      pitch: 1.0
+      rate: 1.2,
+      pitch: 1.0,
     });
   };
 
@@ -64,7 +64,7 @@ export default class MemoDetailScreen extends Component {
           onPress={() => {
             this.props.navigation.navigate('MemoEdit', {
               ...memo,
-              returnMemo: this.returnMemo.bind(this)
+              returnMemo: this.returnMemo.bind(this),
             });
           }}
         />
@@ -80,37 +80,37 @@ export default class MemoDetailScreen extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    width: '100%'
+    width: '100%',
   },
   memoHeader: {
     height: 100,
     backgroundColor: '#17313C',
     justifyContent: 'center',
-    padding: 10
+    padding: 10,
   },
   memoHeaderTitle: {
     fontSize: 20,
     fontWeight: 'bold',
     color: 'white',
-    marginBottom: 4
+    marginBottom: 4,
   },
   memoHeaderDate: {
     color: 'white',
-    fontSize: 12
+    fontSize: 12,
   },
   memoContent: {
     paddingTop: 30,
     paddingLeft: 20,
     paddingRight: 20,
     backgroundColor: '#fff',
-    flex: 1
+    flex: 1,
   },
   memoContentText: {
     lineHeight: 22,
-    fontSize: 16
+    fontSize: 16,
   },
 
   editButton: {
-    top: 78
-  }
+    top: 78,
+  },
 });
